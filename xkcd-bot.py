@@ -2,6 +2,8 @@
 ## Author: Soma // Alicorn Industries
 ## !xkcd to summon current XKCD
 
+####### DON'T FORGET TO PUT YOUR CLIENT ID IN YOUR_CLIENT_ID_HERE
+
 import discord
 import asyncio
 import urllib.request, json
@@ -24,4 +26,4 @@ async def on_message(message):
             img_url = data['img']
         await client.send_message(message.channel, img_url)
         
-client.run("MzMyNTY4Nzc4ODgzNzI3Mzkw.DEAAVA.BEXqsqTU0G2mc-hxzgKLKLX9Ix0")
+client.run("YOUR_CLIENT_ID_HERE")
