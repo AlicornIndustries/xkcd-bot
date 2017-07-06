@@ -27,11 +27,26 @@ async def hello(*args):
     return await bot.say('Hello, world!')
 
 @bot.command()
+async def dicks(*args):
+    for arg in args:
+        await bot.say(arg)
+    return
+
+@bot.command()
 async def xkcd(*args):
-    with urllib.request.urlopen('https://xkcd.com/info.0.json') as url:
-        data = json.loads(url.read().decode())
-        img_url = data['img']
-    await bot.say(img_url)    
+    ''' ex: "!xkcd 1053" has 1053 as args[0] '''
+    if not args:
+        # list empty, get latest comic
+        with urllib.request.urlopen('https://xkcd.com/info.0.json') as url:
+            data = json.loads(url.read().decode())
+            img_url = data['img']
+        await bot.say(img_url)
+    else:
+        num = args[0]
+        with urllib.request.urlopen('https://xkcd.com/' + num + '/info.0.json') as url:
+            data = json.loads(url.read().decode())
+            img_url = data['img']
+        await bot.say(img_url)
 
 # Token here
-bot.run('MzMyNTY4Nzc4ODgzNzI3Mzkw.DEAaQQ.gmM-Xs3MonYBjh7T-OG7iatw5Z8')
+bot.run('TOKEN')
