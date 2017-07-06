@@ -27,12 +27,6 @@ async def hello(*args):
     return await bot.say('Hello, world!')
 
 @bot.command()
-async def dicks(*args):
-    for arg in args:
-        await bot.say(arg)
-    return
-
-@bot.command()
 async def xkcd(*args):
     ''' ex: "!xkcd 1053" has 1053 as args[0] '''
     if not args:
